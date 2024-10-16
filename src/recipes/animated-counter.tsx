@@ -16,11 +16,17 @@ const padding = 10
 const height = fontSize + padding
 const digitWidth = 50
 
+export const metadata = {
+  title: 'Animated Counter',
+  description: 'An animated counter component built with Framer Motion',
+  features: ['Springy Animation', 'Dynamic Y position using offset'],
+}
+
 export default function AnimatedCounter() {
   const [inputValue, setInputValue] = useState(0)
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-yellow-300 to-red-500 p-4">
+    <div className="flex items-center justify-center bg-gradient-to-br from-yellow-300 to-red-500 p-4">
       <Card className="w-full max-w-md bg-black bg-opacity-80 text-white">
         <CardHeader>
           <CardTitle className="text-center text-3xl font-bold text-yellow-400">
