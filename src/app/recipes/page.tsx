@@ -11,7 +11,8 @@ export default function Page() {
     async function fetchFiles() {
       const response = await fetch('/api/recipes')
       const data = await response.json()
-      setFiles(data.files)
+      console.log('data', data)
+      setFiles(data.recipes)
     }
     fetchFiles()
   }, [])

@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { TMetadata } from '@/lib/types'
 import { motion, MotionValue, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
@@ -16,7 +17,7 @@ const padding = 10
 const height = fontSize + padding
 const digitWidth = 50
 
-export const metadata = {
+export const metadata: TMetadata = {
   title: 'Animated Counter',
   description: 'An animated counter component built with Framer Motion',
   features: ['Springy Animation', 'Dynamic Y position using offset'],
