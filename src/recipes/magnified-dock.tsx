@@ -6,25 +6,38 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 export default function MagnifiedDock() {
   const mouseX = useMotionValue(Infinity) //Distance of mouse from left in x axis
+  const [isTouching, setIsTouching] = useState(false)
 
   return (
     <div
       className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
       onMouseMove={(e) => mouseX.set(e.pageX)}
+      onTouchMove={(e) => mouseX.set(e.touches[0].clientX)}
+      onTouchStart={() => setIsTouching(true)}
+      onTouchEnd={() => {
+        setIsTouching(false)
+        mouseX.set(Infinity)
+      }}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
       {[...Array(6).keys()].map((index) => (
-        <AppIcon key={index} mouseX={mouseX} />
+        <AppIcon key={index} mouseX={mouseX} isTouching={isTouching} />
       ))}
     </div>
   )
 }
 
-const AppIcon = ({ mouseX }: { mouseX: MotionValue }) => {
+const AppIcon = ({
+  mouseX,
+  isTouching,
+}: {
+  mouseX: MotionValue
+  isTouching: boolean
+}) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const distance = useTransform(mouseX, (val) => {
@@ -42,7 +55,7 @@ const AppIcon = ({ mouseX }: { mouseX: MotionValue }) => {
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
+      style={{ width: isTouching ? width : 40 }}
       className="aspect-square w-10 rounded-full bg-gray-200"
     ></motion.div>
   )
