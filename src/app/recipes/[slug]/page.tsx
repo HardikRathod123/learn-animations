@@ -28,7 +28,9 @@ export default function Page() {
     loadComponent()
   }, [slug])
 
-  if (!ComponentModule) {
+  const { default: DefaultComponent, metadata } = ComponentModule || {}
+
+  if (!DefaultComponent || !metadata) {
     return (
       <div className="flex h-[calc(100vh-128px)] items-center justify-center">
         <motion.div
@@ -42,8 +44,6 @@ export default function Page() {
       </div>
     )
   }
-
-  const { default: DefaultComponent, metadata } = ComponentModule
 
   return (
     <div className="container mx-auto px-4 py-8">
