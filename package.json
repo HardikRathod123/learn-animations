@@ -28,9 +28,14 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
+        "@commitlint/cli": "^19.5.0",
+        "@commitlint/config-conventional": "^19.5.0",
+        "@commitlint/types": "^19.5.0",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "commitlint-config-gitmoji": "^2.3.1",
+        "cz-customizable": "^7.2.1",
         "eslint": "^8",
         "eslint-config-next": "14.2.15",
         "eslint-config-prettier": "^9.1.0",
@@ -40,5 +45,13 @@
         "prettier-plugin-tailwindcss": "^0.6.8",
         "tailwindcss": "^3.4.1",
         "typescript": "^5"
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-customizable"
+        },
+        "cz-customizable": {
+            "config": "cz-config.js"
+        }
     }
 }
