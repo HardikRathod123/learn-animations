@@ -1,6 +1,9 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { GITHUB_REPO_URL } from '@/lib/constants'
 import { motion } from 'framer-motion'
+import { Code } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -19,6 +22,7 @@ export default function Page() {
   const slug = params.slug as string
   const [ComponentModule, setComponentModule] =
     useState<ComponentModule | null>(null)
+  const github_link = `${GITHUB_REPO_URL}/blob/main/src/recipes/${slug}.tsx`
 
   useEffect(() => {
     const loadComponent = async () => {
@@ -47,17 +51,23 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div>
+      <div className="mb-6 flex items-center justify-between">
         <Link
           href="/recipes"
-          className="mb-4 inline-block text-blue-500 transition-colors hover:text-blue-600"
+          className="inline-block text-blue-500 transition-colors hover:text-blue-600"
         >
           ← Back to Recipes
         </Link>
-        <h1 className="mb-6 text-3xl font-bold text-gray-800">
-          {metadata.title}
-        </h1>
+        <Button variant="outline" asChild>
+          <Link href={github_link} target="_blank" rel="noopener noreferrer">
+            <Code className="mr-2 h-4 w-4" />
+            View Code
+          </Link>
+        </Button>
       </div>
+      <h1 className="mb-6 text-3xl font-bold text-gray-800">
+        {metadata.title}
+      </h1>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
