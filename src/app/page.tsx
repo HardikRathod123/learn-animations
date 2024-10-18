@@ -19,7 +19,7 @@ export default function Home() {
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 10 }}
         >
-          Learn Framer
+          Learn Animations
         </motion.h1>
         <motion.p
           className="mx-auto mb-8 max-w-md text-xl text-gray-600"
@@ -27,8 +27,8 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          Master the art of fluid animations. Elevate your React projects with
-          Framer Motion&apos;s powerful capabilities.
+          Master the art of fluid animations. Elevate your website with engaging
+          animations.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
           <Link href="/" className="text-2xl font-bold text-primary">
-            Learn Framer
+            Learn Animations
           </Link>
         </motion.div>
         <nav>

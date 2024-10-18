@@ -12,9 +12,11 @@ interface ComponentModule {
   default: React.ComponentType
   metadata: {
     title: string
+    name: string
     description: string
     features: string[]
   }
+  name: string
 }
 
 export default function Page() {

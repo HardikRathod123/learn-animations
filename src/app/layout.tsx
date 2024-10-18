@@ -4,8 +4,9 @@ import { cn } from '@/lib/utils'
 import './globals.css'
 
 export const metadata = {
-  title: 'Learn Framer',
-  description: 'Master the art of fluid animations with Framer Motion',
+  title: 'Learn Animations',
+  description:
+    ' Learn art of web Animations and make your website more interactive and engaging',
 }
 
 export default function RootLayout({
