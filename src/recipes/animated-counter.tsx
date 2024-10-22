@@ -20,7 +20,6 @@ const digitWidth = 50
 export const metadata: TMetadata = {
   title: 'Animated Counter',
   description: 'An animated counter component built with Framer Motion',
-  features: ['Springy Animation', 'Dynamic Y position using offset'],
 }
 
 export default function AnimatedCounter() {

@@ -1,7 +1,9 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import Markdown from '@/components/utils/markdown'
 import { GITHUB_REPO_URL } from '@/lib/constants'
+import { TMetadata } from '@/lib/types'
 import { motion } from 'framer-motion'
 import { Code } from 'lucide-react'
 import Link from 'next/link'
@@ -10,12 +12,7 @@ import { useEffect, useState } from 'react'
 
 interface ComponentModule {
   default: React.ComponentType
-  metadata: {
-    title: string
-    name: string
-    description: string
-    features: string[]
-  }
+  metadata: TMetadata
   name: string
 }
 
@@ -78,14 +75,7 @@ export default function Page() {
       >
         <div className="flex flex-col md:flex-row">
           <div className="bg-gray-50 p-6 md:w-1/3">
-            <h2 className="mb-4 text-xl font-semibold">About this Component</h2>
-            <p className="mb-4 text-gray-600">{metadata.description}</p>
-            <h3 className="mb-2 text-lg font-semibold">Key Features:</h3>
-            <ul className="list-inside list-disc text-gray-600">
-              {metadata.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
+            <Markdown>{metadata.description}</Markdown>
           </div>
           <div className="flex min-h-[400px] items-center justify-center bg-gray-100 p-6 md:w-2/3">
             <motion.div

@@ -52,9 +52,11 @@ const AppIcon = ({ mouseX }: { mouseX: MotionValue }) => {
 
 export const metadata: TMetadata = {
   title: 'Magnified Dock',
-  description: 'Magnified Dock Inspired from Apple',
-  features: [
-    'Magnify the icons based on mouse hover position',
-    'Springy animation effects',
-  ],
+  description: `
+  Recreation of the magnification effect from the Mac OS dock, inspired by [Build UI](https://buildui.com/) .
+
+  Developed using tailwind and framer motion.
+
+  It works on both mobile and desktop
+    `,
 }
