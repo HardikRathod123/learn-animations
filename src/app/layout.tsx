@@ -1,6 +1,7 @@
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import { cn } from '@/lib/utils'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-7LE8VHE5DJ" />
     </html>
   )
 }
